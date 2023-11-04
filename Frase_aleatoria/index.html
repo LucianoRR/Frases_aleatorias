@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            height: 650px;
+            width: 600px;
+            background-color: white;
+            border: 3px solid black;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content:space-around;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            margin-top: 80px;
+            display: grid
+
+
+        }
+
+
+        .box1{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            background-color:none;
+            height:46%;
+            width:80%;
+        }
+
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            background-color: rebeccapurple;
+            height: 90px;
+            width:30%;
+            margin: 10px;
+        }
+
+        .boton{
+            width: 300px;
+            height: 50px;
+        }
+        
+        .box1 #quote{
+            font-size:larger;
+            color: green;
+        }
+
+        .box1 #author{
+            color: green;
+        }
+
+    </style>
+
+<script>
+const quote= document.getElementById("quote");
+const author= document.getElementById("author");
+const api_url="https://api.quotable.io/random";
+
+async function getquote(url){
+    const response = await fetch(url);
+    var data = await response.json();
+    console.log(data)
+    quote.innerHTML= data.content
+    author.innerHTML= data.content
+}
+
+getquote(api_url);
+
+</script>
+
+
+
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="card">
+            <h1>Citas</h1>
+            <div class="box1">
+                <blockquote id="quote">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto eaque minus non adipisci, voluptatum iure eius eos at porro modi dolorum nihil et, recusandae sit, veritatis quidem dolorem facere hic quae doloribus autem illum. Nesciunt, vero maiores libero quibusdam, culpa explicabo voluptate debitis at aut mollitia dicta corporis excepturi rem?"</blockquote>
+
+                                                <span id="author">ddddd</span>
+                
+            </div>
+            <button class="boton">Psss</button>
+    </div>
+
+
+</body>
+
+</html>
